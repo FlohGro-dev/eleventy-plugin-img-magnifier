@@ -1,13 +1,99 @@
-export default function(eleventyConfig){
-    eleventyConfig.addPlugin('imgMagnifierPlugin', function(){
-        eleventyConfig.addPassthroughCopy({ 'img-magnifier.css': 'img-magnifier-plugin/img-magnifier.css' });
-        eleventyConfig.addPassthroughCopy({ 'img-magnifier.js': 'img-magnifier-plugin/img-magnifier.js' });
-    
-        eleventyConfig.addShortcode("img-magnifier", function() {
-            return `
-              <link rel="stylesheet" href="/img-magnifier-plugin/img-magnifier.css">
-              <script src="/img-magnifier-plugin/img-magnifier.js"></script>
+export default function (eleventyConfig) {
+  eleventyConfig.addPlugin(function imgMagnifier(eleventyConfig) {
+    eleventyConfig.addShortcode("imgmagnifier", function () {
+      return `
+              <style>
+              img {
+                cursor: zoom-in;
+              }
+              /*   Open state of the dialog  */
+              dialog[open] {
+                animation: open .2s ease-out forwards;
+                opacity: 1;
+                margin-inline: auto;
+                margin-block: auto;
+                border: none;
+                width: 60vw;
+                box-shadow: 2px 2px 5px 1px var(--shadow);
+                &:focus {
+                  outline: none;
+                }
+                & img {
+                  margin-top: 0 !important;
+                  border-radius: 0!important;
+                }
+              }
+              @media (width < 1000px) {
+                dialog[open] {
+                  width: 90vw;
+                }
+              }
+              /*   Closed state of the dialog   */
+              dialog {
+                opacity: 0;
+              }
+              
+              
+              /*   Before-open state  */
+              /* Needs to be after the previous dialog[open] rule to take effect,
+                  as the specificity is the same */
+              @starting-style {
+                dialog[open] {
+                  opacity: 0;
+                }
+              }
+              
+              @keyframes open {
+                from { opacity: 0 }
+                to   { opacity: 1 }
+              }
+              
+              
+              /* Transition the :backdrop when the dialog modal is promoted to the top layer */
+              dialog::backdrop {
+                background-color: rgb(0 0 0 / 0%);
+                backdrop-filter: blur(0px);
+                transition: backdrop-filter 0.2s, background-color 0.2s;
+                /* Equivalent to
+                transition: all 0.7s allow-discrete; */
+              }
+              
+              dialog[open]::backdrop {
+                background-color: rgb(0 0 0 / 30%);
+                backdrop-filter: blur(2px);
+              }
+              
+              /* This starting-style rule cannot be nested inside the above selector
+              because the nesting selector cannot represent pseudo-elements. */
+              
+              @starting-style {
+                dialog[open]::backdrop {
+                  background-color: rgb(0 0 0 / 0%);
+                  backdrop-filter: blur(0px);
+                }
+              }
+              </style>
+              <script>let imgs = document.querySelectorAll('img')
+
+              imgs.forEach(img => {
+                  img.addEventListener('click', ()=>{
+                      let parent = img.parentNode
+                      let newImg = img.cloneNode()
+                      let dialog = document.createElement('dialog')
+                      dialog.appendChild(newImg)
+                      parent.appendChild(dialog)
+                      dialog.showModal()
+
+                      dialog.addEventListener('click', (event)=>{
+                          if (event.target == dialog) {
+                              //car le dialog prend tout le reste de la page, l'intérieur de la boite c'est le <search>
+                              dialog.close();
+                              dialog.remove()
+                            }
+                      })
+                  })
+              });</script>
             `;
-          });
-    })
+    });
+  });
 }

@@ -6,14 +6,23 @@ When hovering an img, the cursor is changed as a magnifying glass to indicates t
 
 ![[A user clicks on a blog image, the image appears fullscreen on a darker background in a fade-in animation, the user clicks outside and the image disappear](./showcase.webm)]
 
-
 ## Installation
 
 ```bash
 npm install eleventy-plugin-img-magnifier
 ```
 
-Place the `{% img-magnifier %}` shortcode on your desired pages/templates.
+Then register it in your config .eleventy.js file :
+
+```js
+import imgMagnifier from "eleventy-plugin-img-magnifier"
+
+export default function(eleventyConfig) {
+    eleventyConfig.addPlugin(imgMagnifier)
+}
+```
+
+Place the `{% img-magnifier %}` shortcode on your desired pages/templates just the before the closing `</body>`of your file
 
 ## How does it work ?
 
