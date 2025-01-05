@@ -23,7 +23,7 @@ export default function(eleventyConfig) {
 }
 ```
 
-Place the `{% img-magnifier %}` shortcode on your desired pages/templates just the before the closing `</body>`of your file
+Place the `{% imgmagnifier %}` shortcode on your desired pages/templates just the before the closing `</body>`of your file
 
 ## How does it work ?
 
