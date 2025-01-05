@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "zoom image to fullscreen",
   "main": ".eleventy.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "module",
   "keywords": [
+    "eleventy-plugin",
+    "eleventy",
     "image",
     "magnifying",
     "glass",
@@ -14,9 +14,10 @@
     "image-large",
     "image-fullscreen"
   ],
-  "author": "teotimepacreau",
+  "author": "teotimepacreau (https://www.teotimepacreau.fr/)",
   "license": "ISC",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teotimepacreau/eleventy-plugin-img-magnifier"
   }
 }
