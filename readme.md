@@ -19,3 +19,7 @@ Place the `{% img-magnifier %}` shortcode on your desired pages/templates.
 
 When the image is clicked, a js script loads and dynamically inserts a `<dialog>` HTML modal right before the image in its container. When the outside of the modal is clicked the `dialog` automatically disappears.
 The overall is styled and transitioned via native CSS `@starting-style` rule and `<dialog>` targeting.
+
+## Requirements
+
+It's based on ESM so Eleventy 3.0 minimum is required.
