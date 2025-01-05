@@ -2,7 +2,10 @@
 
 When hovering an img, the cursor is changed as a magnifying glass to indicates to the user that the img can be enlarged. A click and the img appears enlarger, through a fade-in animation and the background get darker. A click outside the image quit the enlarged view.
 
+[showcase.webm](https://github.com/user-attachments/assets/ee2c8c07-c4d7-4fe6-8b32-40afb5419713)
+
 ![[A user clicks on a blog image, the image appears fullscreen on a darker background in a fade-in animation, the user clicks outside and the image disappear](./showcase.webm)]
+
 
 ## Installation
 
