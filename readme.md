@@ -1,5 +1,6 @@
 # eleventy-plugin-img-magnifier : zoom image to fullscreen
 
+Enlarge images and create a lightbox to view fullscreen.
 When hovering an img, the cursor is changed as a magnifying glass to indicates to the user that the img can be enlarged. A click and the img appears enlarged, through a fade-in animation and the background get darker. A click outside the image quit the enlarged view.
 
 [showcase.webm](https://github.com/user-attachments/assets/ee2c8c07-c4d7-4fe6-8b32-40afb5419713)
