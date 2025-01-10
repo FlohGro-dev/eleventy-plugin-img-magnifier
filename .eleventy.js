@@ -19,8 +19,12 @@ export default function (eleventyConfig) {
                   outline: none;
                 }
                 & img {
-                  margin-top: 0 !important;
+                  margin: 0 !important;
                   border-radius: 0!important;
+                  max-width: 100%;
+                  display: block;
+                  width: auto;
+                  height: auto;
                 }
               }
               @media (width < 1000px) {
@@ -31,6 +35,7 @@ export default function (eleventyConfig) {
               /*   Closed state of the dialog   */
               dialog {
                 opacity: 0;
+                align-content: center;
               }
               
               
