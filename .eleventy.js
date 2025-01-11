@@ -78,7 +78,7 @@ export default function (eleventyConfig) {
                 }
               }
               </style>
-              <script>let imgs = document.querySelectorAll('img')
+              <script defer>let imgs = document.querySelectorAll('img')
 
               imgs.forEach(img => {
                   img.addEventListener('click', ()=>{
