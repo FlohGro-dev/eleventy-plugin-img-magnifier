@@ -1,3 +1,7 @@
+## [1.0.5] - 2025-01-11
+### Fixed
+- fix(ensuring DOMContentLoaded before running the script)
+
 ## [1.0.4] - 2025-01-11
 ### Fixed
 - fix(injecting the style and script in the head because not authorized in the body, defer the script to load only after the whole document is loaded)

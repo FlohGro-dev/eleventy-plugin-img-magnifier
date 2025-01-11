@@ -60,7 +60,7 @@ export default function (eleventyConfig) {
                 backdrop-filter: blur(0px);
                 transition: backdrop-filter 0.2s, background-color 0.2s;
                 /* Equivalent to
-                transition: all 0.7s allow-discrete; */
+                transition: all .2s allow-discrete; */
               }
               
               dialog[open]::backdrop {
@@ -78,7 +78,9 @@ export default function (eleventyConfig) {
                 }
               }
               </style>
-              <script defer>let imgs = document.querySelectorAll('img')
+              <script defer>
+              document.addEventListener('DOMContentLoaded', () => {
+              let imgs = document.querySelectorAll('img')
 
               imgs.forEach(img => {
                   img.addEventListener('click', ()=>{
@@ -91,13 +93,14 @@ export default function (eleventyConfig) {
 
                       dialog.addEventListener('click', (event)=>{
                           if (event.target == dialog) {
-                              //car le dialog prend tout le reste de la page, l'intérieur de la boite c'est le <search>
                               dialog.close();
                               dialog.remove()
                             }
                       })
                   })
-              });</script>
+              });
+              })
+              </script>
             `;
     });
   });
